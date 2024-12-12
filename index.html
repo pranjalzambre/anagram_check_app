@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <title>Anagram Checker App By Pranjal</title>
+        <style>
+            *{font-size:35px;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;}
+                h1{background-color: black;color:aliceblue;border-radius:20px;width:60%;}
+                body{background-color: blueviolet;}
+                .btn{color:blanchedalmond;background-color: black;width:30%;margin-left:2%;border-radius:20px;}
+                .btn:hover{color:aqua;}
+        </style> 
+    </head>
+    <body>
+        <center>
+        <h1>Anagram Checker App</h1>
+        <form onsubmit="ac()">
+            <br/><br/>
+            <input type="text" placeholder="enter string 1" id="string1" style="width:33%"/>
+            <br/><br/>
+            <input type="text" placeholder="enter string 2" id="string2" style="width:33%"/>
+            <br/><br/>
+            <input type="submit" value="check" class="btn"/>
+            <br/><br/>
+        </form>    
+        <h2 id="msg"/>
+        <script>
+            function ac()
+            {
+                event.preventDefault();
+                let string1=document.getElementById("string1");
+                let string2=document.getElementById("string2");
+                let msg=document.getElementById("msg");
+
+                if((string1.value==="")||(string2.value===""))
+                {
+                    alert("please enter string");
+                    msg.innerHTML="";
+                    string.focus();
+                    return;
+                }
+
+                org_str1=string1.value;
+                org_str2=string2.value;
+
+                new_str1=org_str1.split("").sort().join("");
+                new_str2=org_str2.split("").sort().join("");
+
+                if(new_str1===new_str2)
+                {
+                    msg.innerHTML="yes it is anagram👍";
+                }
+                else
+                {
+                    msg.innerHTML="nope it is not anagram🤞";
+                }
+                
+            }
+        </script>
+        </center>
+    </body>    
+</html>
